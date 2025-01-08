@@ -6,9 +6,13 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 00:48:21 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/08 02:35:37 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/08 16:55:57 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+bool	check_args(char **av)
+{
+
+}
