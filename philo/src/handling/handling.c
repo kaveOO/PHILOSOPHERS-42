@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handling.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:51:11 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/08 16:06:08 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/09 00:02:40 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	format()
 {
-	printf("Format -> <number_of_philosophers> <time_to_die> ");
-	printf("<time_to_eat> <time_to_sleep> ");
-	printf("<number_of_times_each_philosopher_must_eat>\n");
+	printf("philoArgs -> Invalid args format\n\n");
+	printf("int ->		<number_of_philos>\n");
+	printf("int ->		<time_to_die>		(in milliseconds)\n");
+	printf("int ->		<time_to_eat>		(in milliseconds)\n");
+	printf("int ->		<time_to_sleep>		(in milliseconds)\n");
+	printf("int ->		<num_time_to_eat>	(optional)\n\n");
 	exit(0);
 }

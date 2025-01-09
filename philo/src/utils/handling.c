@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   handling.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 19:49:44 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/08 22:44:25 by kaveo            ###   ########.fr       */
+/*   Created: 2025/01/08 19:36:56 by kaveo             #+#    #+#             */
+/*   Updated: 2025/01/09 00:58:23 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include <philo.h>
 
-// TODO Just create routine of each philo with mutex lock and unlock
-
-int	main(int ac, char **av)
+void	args_error(char *str)
 {
-	if (ac < 5 || ac > 6)
-		format();
-	if (!check_args(av))
-		exit(1);
-	
+	int	i;
+	i = 0;
+
+	write(2, "philoArgs -> ", 14);
+	while (str[i])
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
 }

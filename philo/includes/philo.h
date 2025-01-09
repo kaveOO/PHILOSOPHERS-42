@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/08 16:54:28 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/09 00:57:48 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,25 @@ typedef struct			s_philo
 	pthread_mutex_t		meal_lock;
 }						t_philo;
 
-// ? INIT FUCNTIONS
-
-t_philo	*init_philo_struct();
-
 // ? HANDLING FUNCTIONS
 
 void	format();
+
+// ? PARSING FUNCTIONS
+
+bool	check_args(char **av);
+bool	check_chars(char **av);
+
+// ? UTILS FUNCTIONS
+
+bool	ft_isdigit(int c);
+size_t	ft_strlen(const char *s);
+void	args_error(char *str);
+bool	check_limits(char **av);
+long	ft_atol(const char *str);
+bool	ft_isspace(int c);
+bool	check_len(char **av);
+bool	check_values(char **av);
+
+
 
