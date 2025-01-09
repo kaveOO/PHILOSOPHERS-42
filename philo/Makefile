@@ -10,9 +10,8 @@ SRC			=	src/core/philo.c		\
 				src/core/inits.c		\
 				src/handling/handling.c	\
 				src/parsing/parsing.c	\
-				src/utils/lib.c			\
+				src/libscam/functions.c	\
 				src/utils/parsing.c		\
-				src/utils/handling.c	\
 
 OBJ 		= $(SRC:.c=.o)
 
