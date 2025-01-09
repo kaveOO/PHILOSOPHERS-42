@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 19:49:44 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/09 06:40:49 by kaveo            ###   ########.fr       */
+/*   Created: 2025/01/09 05:22:04 by kaveo             #+#    #+#             */
+/*   Updated: 2025/01/09 06:14:41 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+void	*philos_routine()
 {
-	t_program *program;
+	printf("hello from thread !\n");
+	return 0;
+}
 
-	if (ac < 5 || ac > 6)
-		format();
-	if (!check_args(av))
-		exit(1);
-	program = malloc(sizeof(t_program));
-	program->philos = init_philo_struct(av);
-	create_all_threads(program);
-	free(program->philos);
-	free(program);
+
+void	create_all_threads(t_program *program)
+{
+	int	i;
+
+	i = 0;
+	while (i < program->philos->num_of_philos)
+	{
+		pthread_create(&program->philos->thread, NULL, &philos_routine, NULL);
+		i++;
+	}
 }

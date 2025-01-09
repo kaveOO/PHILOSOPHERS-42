@@ -12,6 +12,7 @@ SRC			=	src/core/philo.c		\
 				src/parsing/parsing.c	\
 				src/libscam/functions.c	\
 				src/utils/parsing.c		\
+				src/core/threads.c		\
 
 OBJ 		= $(SRC:.c=.o)
 

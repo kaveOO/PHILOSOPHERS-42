@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:51:11 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/09 02:26:52 by kaveo            ###   ########.fr       */
+/*   Updated: 2025/01/09 07:15:30 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	format()
 void	args_error(char *str)
 {
 	int	i;
-	i = 0;
 
+	i = 0;
 	write(2, "philoArgs -> ", 14);
 	while (str[i])
 	{
