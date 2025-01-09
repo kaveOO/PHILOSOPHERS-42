@@ -6,7 +6,7 @@
 /*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/09 00:57:48 by kaveo            ###   ########.fr       */
+/*   Updated: 2025/01/09 03:05:44 by kaveo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <stdbool.h>
+# include <string.h>
 
 typedef struct			s_philo
 {
@@ -46,6 +47,10 @@ void	format();
 
 bool	check_args(char **av);
 bool	check_chars(char **av);
+
+// ? INITS FUNCTIONS
+
+t_philo	*init_philo_struct(char **av);
 
 // ? UTILS FUNCTIONS
 
