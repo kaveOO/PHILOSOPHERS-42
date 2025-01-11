@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/10 12:10:28 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/11 23:53:18 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 
 typedef struct			s_philo
 {
-	pthread_t			thread;
-	bool				is_eating;
-	bool				is_dead;
+	pthread_t			thread[250];
 	int					id;
+	bool				is_dead;
+	bool				is_eating;
 	int					meals_eaten;
 	int					num_of_philos;
 	int					time_to_die;
@@ -44,7 +44,6 @@ typedef struct			s_program
 	t_philo				*philos;
 } 						t_program;
 
-
 void	format();
 bool	check_args(char **av);
 bool	check_chars(char **av);
@@ -59,6 +58,6 @@ bool	check_len(char **av);
 bool	check_values(char **av);
 void	*philos_routine();
 void	create_all_threads(t_program *program);
-
+void	join_all_threads(t_program *program);
 
 
