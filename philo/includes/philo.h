@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/11 23:53:18 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/12 00:07:48 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 typedef struct			s_philo
 {
-	pthread_t			thread[250];
-	int					id;
+	pthread_t			*thread;
+	int					*id;
 	bool				is_dead;
 	bool				is_eating;
 	int					meals_eaten;
