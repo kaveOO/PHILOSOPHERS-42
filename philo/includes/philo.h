@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/12 00:07:48 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/22 21:51:57 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,45 +19,49 @@
 # include <pthread.h>
 # include <stdbool.h>
 # include <string.h>
+# include <limits.h>
 
-typedef struct			s_philo
+typedef enum		s_table_state
 {
-	pthread_t			*thread;
-	int					*id;
-	bool				is_dead;
-	bool				is_eating;
-	int					meals_eaten;
-	int					num_of_philos;
-	int					time_to_die;
-	int					time_to_eat;
-	int					time_to_sleep;
-	int					num_time_to_eat;
-	pthread_mutex_t		r_fork;
-	pthread_mutex_t		l_fork;
-	pthread_mutex_t		write_lock;
-	pthread_mutex_t		dead_lock;
-	pthread_mutex_t		meal_lock;
-}						t_philo;
+	HAVE_A_NICE_DINNER,
+	WONT_THINK_ANYMORE,
+	THEY_ATE_TOO_MUCH,
+	PTHREAD_FAILED
+}					t_table_state;
 
-typedef struct			s_program
+typedef struct		s_args
 {
-	t_philo				*philos;
-} 						t_program;
+	int				philos_count;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				nb_time_must_eat;
+}					t_args;
 
-void	format();
-bool	check_args(char **av);
-bool	check_chars(char **av);
-t_philo	*init_philo_struct(char **av);
+typedef	struct		s_table
+{
+	pthread_mutex_t	mutex_update;
+	pthread_mutex_t	mutex_display;
+	t_table_state	state;
+	int				fullfilled_philos_count;
+	long			dinner_start;
+}					t_table;
+
+typedef struct		s_philo
+{
+	t_args			*args;
+	t_table			*table;
+	int				id;
+	pthread_mutex_t	r_fork;
+	pthread_mutex_t	*l_fork;
+	int				nb_time_ate;
+	long			last_meal_time;
+}					t_philo;
+
 bool	ft_isdigit(int c);
 size_t	ft_strlen(const char *s);
-void	args_error(char *str);
-bool	check_limits(char **av);
 long	ft_atol(const char *str);
 bool	ft_isspace(int c);
-bool	check_len(char **av);
-bool	check_values(char **av);
-void	*philos_routine();
-void	create_all_threads(t_program *program);
-void	join_all_threads(t_program *program);
-
-
+bool	check_args(char **av);
+void	format();
+void	args_error(char *str);

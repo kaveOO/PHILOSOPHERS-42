@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 02:23:50 by kaveo             #+#    #+#             */
-/*   Updated: 2025/01/09 02:24:03 by kaveo            ###   ########.fr       */
+/*   Updated: 2025/01/22 21:54:18 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ long	ft_atol(const char *str)
 	sign = 1;
 	i = 0;
 	while (ft_isspace(str[i]))
+	{
 		i++;
+	}
 	if (str[i] == '-')
 	{
 		sign *= -1;
