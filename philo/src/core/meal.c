@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 03:58:22 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 05:43:26 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 06:26:14 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*philosophing(void *param)
 	}
 	while (dinner_running(philo->table))
 	{
-		dinner_running(philo);
+		eating_dinner(philo);
 		sleep_and_think(philo);
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 00:48:49 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 05:32:54 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 06:21:53 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,12 @@ t_philo	**create_all_philos(t_args *args, t_table *table)
 	philos[0] = init_philo(args, table, 1, NULL);
 	if (!philos[0])
 		return (free_all_philos(philos, 1), NULL);
-	i = 1;
-	while (i < args->philos_count)
+	i = 0;
+	while (++i < args->philos_count)
 	{
-		philos[i] = init_philo(args, table, i + 1, &philos[i + 1]->r_fork);
+		philos[i] = init_philo(args, table, i + 1, &philos[i - 1]->r_fork);
 		if (!philos[i])
 			return (free_all_philos(philos, i + 1), NULL);
-		i++;
 	}
 	if (args->philos_count > 1)
 		philos[0]->l_fork = &philos[i - 1]->r_fork;

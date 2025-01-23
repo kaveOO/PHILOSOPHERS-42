@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 05:32:54 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 06:25:54 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,6 @@ void	ms_sleep(long ms);
 bool	dinner_running(t_table *table);
 void	sleep_and_think(t_philo *philo);
 void	handle_pthread_error(t_table *table);
+void	*monitoring(void *param);
+void	*philosophing(void *param);
+void	eating_dinner(t_philo *philo);

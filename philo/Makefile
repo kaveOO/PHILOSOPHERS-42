@@ -11,7 +11,6 @@ SRC			=	src/core/philo.c		\
 				src/handling/handling.c	\
 				src/parsing/parsing.c	\
 				src/libscam/functions.c	\
-				src/core/threads.c		\
 				src/utils/free.c		\
 				src/utils/time.c		\
 				src/core/actions.c		\
