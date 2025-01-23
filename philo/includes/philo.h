@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/22 21:51:57 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 02:04:09 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdbool.h>
 # include <string.h>
 # include <limits.h>
+# include "ft_printf_fd.h"
 
 typedef enum		s_table_state
 {
@@ -65,3 +66,4 @@ bool	ft_isspace(int c);
 bool	check_args(char **av);
 void	format();
 void	args_error(char *str);
+t_args	*init_args(char **av);

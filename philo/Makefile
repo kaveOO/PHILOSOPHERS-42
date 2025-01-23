@@ -2,7 +2,7 @@ NAME		=	philo
 
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror -g $(INCLUDE)
-INCLUDE		=	-I includes
+INCLUDE		=	-I includes -I src/libscam/printf_fd
 CLONE		=	git clone
 RM			=	rm -f
 
