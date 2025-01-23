@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 19:49:44 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 03:00:09 by albillie         ###   ########.fr       */
+/*   Created: 2025/01/23 03:19:49 by albillie          #+#    #+#             */
+/*   Updated: 2025/01/23 03:23:36 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+void	destroy_and_free_table(t_table *table)
 {
-	t_args	*args;
-	t_table	*table;
+	pthread_mutex_destroy(&table->mutex_display);
+	pthread_mutex_destroy(&table->mutex_update);
+	free(table);
+}
 
-	if (ac < 5 || ac > 6)
-		format();
-	if (!check_args(av))
-		exit(1);
-	args = init_args(av);
-	table = init_table();
-	if (!table)
-		return (free(args), EXIT_FAILURE);
+void	free_single_philo(t_philo *philo)
+{
+	pthread_mutex_destroy(&philo->r_fork);
+	free(philo);
+}
+
+void	free_all_philos(t_philo **philos, int philos_count)
+{
+	while (philos_count--)
+	{
+		free_single_philo(philos[philos_count]);
+	}
+	free(philos);
 }

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 19:49:44 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 03:00:09 by albillie         ###   ########.fr       */
+/*   Created: 2025/01/23 02:15:45 by albillie          #+#    #+#             */
+/*   Updated: 2025/01/23 02:49:55 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+long	get_time_in_ms(void)
 {
-	t_args	*args;
-	t_table	*table;
+	struct timeval	tv;
 
-	if (ac < 5 || ac > 6)
-		format();
-	if (!check_args(av))
-		exit(1);
-	args = init_args(av);
-	table = init_table();
-	if (!table)
-		return (free(args), EXIT_FAILURE);
+	gettimeofday(&tv, NULL);
+	return(tv.tv_sec * 1000 + tv.tv_usec / 1000);
+}
+
+long	get_time_since_launch(t_table *table)
+{
+	return (get_time_in_ms() - table->dinner_start);
+}
+
+void	ms_sleep(long ms)
+{
+	usleep(ms * 1000);
 }

@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 02:04:09 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 02:58:50 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@
 # include <stdbool.h>
 # include <string.h>
 # include <limits.h>
+# include <sys/time.h>
 # include "ft_printf_fd.h"
+
+#define MUTEX_T pthread_mutex_t
 
 typedef enum		s_table_state
 {
@@ -67,3 +70,6 @@ bool	check_args(char **av);
 void	format();
 void	args_error(char *str);
 t_args	*init_args(char **av);
+long	get_time_in_ms(void);
+long	get_time_since_launch(t_table *table);
+t_table	*init_table();

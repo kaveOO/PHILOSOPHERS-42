@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 00:48:49 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 01:01:19 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 03:19:20 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,49 @@ t_table	*init_table()
 	if (pthread_mutex_init(&table->mutex_update, NULL) != 0)
 	{
 		free(table);
-		
+		ft_printf_fd(2, "Mutex update init failed\n");
+		exit(EXIT_FAILURE);
 	}
+	if (pthread_mutex_init(&table->mutex_display, NULL) != 0)
+	{
+		free(table);
+		ft_printf_fd(2, "Mutex display init failed\n");
+		exit(EXIT_FAILURE);
+	}
+	table->state = HAVE_A_NICE_DINNER;
+	table->fullfilled_philos_count = 0;
+	table->dinner_start = get_time_in_ms();
+	return (table);
+}
+
+t_philo	*init_philo(t_args *args, t_table *table, int id, MUTEX_T *l_fork)
+{
+	t_philo	*philo;
+
+	philo = malloc(sizeof(t_philo));
+	philo->args = args;
+	philo->table = table;
+	philo->id = id;
+	if (pthread_mutex_init(&philo->l_fork, NULL) != 0)
+	{
+		free(philo);
+		ft_printf_fd(2, "Mutex l_fork init failed\n");
+		return (NULL);
+	}
+	philo->l_fork = l_fork;
+	philo->nb_time_ate = 0;
+	philo->last_meal_time = get_time_in_ms();
+	return (philo);
+}
+
+t_philo	**create_all_philos(t_args *args, t_table *table)
+{
+	t_philo	**philos;
+	int		i;
+
+	philos = malloc(sizeof(t_philo *) * args->philos_count);
+	philos[0] = init_philo(args, table, 1, NULL);
+	if (!philos[0])
+		return (free([philos]))
 
 }
