@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:49:44 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 04:43:29 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 05:22:45 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,15 @@ static void	serving_all_plates(t_args *args, t_table *table, t_philo **philos,
 	{
 		if (pthread_create(threads + i, NULL, dinner_running, philos[i]) != 0)
 		{
-			return (//error pthread, NULL);
+			return (handle_pthread_error(table));
 		}
-
+		i++;
 	}
+	if (pthread_create(threads + i + 1, NULL, MO)
+	{
+		/* code */
+	}
+
 
 
 }

@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 00:48:49 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 03:47:49 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 05:32:54 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_table	*init_table()
 		exit(EXIT_FAILURE);
 	}
 	table->state = HAVE_A_NICE_DINNER;
-	table->fullfilled_philos_count = 0;
+	table->feeded_philos_count = 0;
 	table->dinner_start = get_time_in_ms();
 	return (table);
 }

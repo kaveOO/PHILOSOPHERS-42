@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handling.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaveo <kaveo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:51:11 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/09 07:15:30 by kaveo            ###   ########.fr       */
+/*   Updated: 2025/01/23 05:19:49 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ void	format()
 	printf("int ->		<time_to_sleep>		(in milliseconds)\n");
 	printf("int ->		<num_time_to_eat>	(optional)\n\n");
 	exit(0);
+}
+
+void	handle_pthread_error(t_table *table)
+{
+	ft_printf_fd(2, "Failed to create or join Pthread\n");
+	pthread_mutex_lock(&table->mutex_update);
+	table->state = PTHREAD_FAILED;
+	pthread_mutex_unlock(&table->mutex_update);
+
 }
 
 void	args_error(char *str)

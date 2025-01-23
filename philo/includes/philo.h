@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 04:42:48 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 05:32:54 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef	struct		s_table
 	pthread_mutex_t	mutex_update;
 	pthread_mutex_t	mutex_display;
 	t_table_state	state;
-	int				fullfilled_philos_count;
+	int				feeded_philos_count;
 	long			dinner_start;
 }					t_table;
 
@@ -80,3 +80,4 @@ t_philo	**create_all_philos(t_args *args, t_table *table);
 void	ms_sleep(long ms);
 bool	dinner_running(t_table *table);
 void	sleep_and_think(t_philo *philo);
+void	handle_pthread_error(t_table *table);
