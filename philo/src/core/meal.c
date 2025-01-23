@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 03:58:22 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 06:26:14 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 06:39:41 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	*philosophing(void *param)
 static void	check_if_feeded(t_philo *philo, t_table *table, t_args *args)
 {
 	pthread_mutex_lock(&table->mutex_update);
-	if (philo->nb_time_ate >= args->nb_time_must_eat)
+	if (philo->nb_time_ate == args->nb_time_must_eat)
 	{
 		table->feeded_philos_count++;
 	}
