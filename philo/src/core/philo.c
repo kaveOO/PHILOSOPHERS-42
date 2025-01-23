@@ -6,11 +6,41 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:49:44 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 03:00:09 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 04:43:29 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	serving_all_plates(t_args *args, t_table *table, t_philo **philos,
+	pthread_t *threads)
+{
+	int	i;
+
+	i = 0;
+	while (i < args->philos_count)
+	{
+		if (pthread_create(threads + i, NULL, dinner_running, philos[i]) != 0)
+		{
+			return (//error pthread, NULL);
+		}
+
+	}
+
+
+}
+
+static void	have_a_nice_dinner(t_args *args, t_table *table)
+{
+	t_philo		**philos;
+	pthread_t	*threads;
+
+	philos = create_all_philos(args, table);
+	if (!philos)
+		return (free(args), destroy_and_free_table(table));
+	threads = malloc(sizeof(pthread_t) * (args->philos_count + 1));
+	pthread_mutex_lock(&table->mutex_update);
+}
 
 int	main(int ac, char **av)
 {

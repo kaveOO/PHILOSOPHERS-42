@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 00:48:49 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 03:19:20 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 03:47:49 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ t_philo	*init_philo(t_args *args, t_table *table, int id, MUTEX_T *l_fork)
 	philo->args = args;
 	philo->table = table;
 	philo->id = id;
-	if (pthread_mutex_init(&philo->l_fork, NULL) != 0)
+	if (pthread_mutex_init(&philo->r_fork, NULL) != 0)
 	{
 		free(philo);
-		ft_printf_fd(2, "Mutex l_fork init failed\n");
+		ft_printf_fd(2, "Mutex r_fork init failed\n");
 		return (NULL);
 	}
 	philo->l_fork = l_fork;
@@ -83,6 +83,16 @@ t_philo	**create_all_philos(t_args *args, t_table *table)
 	philos = malloc(sizeof(t_philo *) * args->philos_count);
 	philos[0] = init_philo(args, table, 1, NULL);
 	if (!philos[0])
-		return (free([philos]))
-
+		return (free_all_philos(philos, 1), NULL);
+	i = 1;
+	while (i < args->philos_count)
+	{
+		philos[i] = init_philo(args, table, i + 1, &philos[i + 1]->r_fork);
+		if (!philos[i])
+			return (free_all_philos(philos, i + 1), NULL);
+		i++;
+	}
+	if (args->philos_count > 1)
+		philos[0]->l_fork = &philos[i - 1]->r_fork;
+	return (philos);
 }

@@ -12,6 +12,15 @@ SRC			=	src/core/philo.c		\
 				src/parsing/parsing.c	\
 				src/libscam/functions.c	\
 				src/core/threads.c		\
+				src/utils/free.c		\
+				src/utils/time.c		\
+				src/core/actions.c		\
+				src/core/meal.c		\
+				src/libscam/printf_fd/ft_printf_fd_hex.c \
+				src/libscam/printf_fd/ft_printf_fd_ptr.c \
+				src/libscam/printf_fd/ft_printf_fd_utils.c \
+				src/libscam/printf_fd/ft_printf_fd.c \
+
 
 OBJ 		= $(SRC:.c=.o)
 

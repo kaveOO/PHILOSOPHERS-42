@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 18:15:55 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 02:58:50 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/23 04:42:48 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,10 @@ t_args	*init_args(char **av);
 long	get_time_in_ms(void);
 long	get_time_since_launch(t_table *table);
 t_table	*init_table();
+void	destroy_and_free_table(t_table *table);
+void	free_single_philo(t_philo *philo);
+void	free_all_philos(t_philo **philos, int philos_count);
+t_philo	**create_all_philos(t_args *args, t_table *table);
+void	ms_sleep(long ms);
+bool	dinner_running(t_table *table);
+void	sleep_and_think(t_philo *philo);
