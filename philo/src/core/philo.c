@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:49:44 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/24 04:51:21 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/24 05:10:55 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ static void	have_a_nice_dinner(t_args *args, t_table *table)
 	}
 	free(threads);
 	free_all_philos(philos, args->philos_count);
-
 }
 
 int	main(int ac, char **av)

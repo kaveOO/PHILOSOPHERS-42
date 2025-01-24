@@ -6,13 +6,13 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:51:11 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 05:19:49 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/24 05:11:15 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	format()
+void	format(void)
 {
 	printf("philoArgs -> Invalid args format\n\n");
 	printf("int ->		<number_of_philos>\n");
@@ -29,7 +29,6 @@ void	handle_pthread_error(t_table *table)
 	pthread_mutex_lock(&table->mutex_update);
 	table->state = PTHREAD_FAILED;
 	pthread_mutex_unlock(&table->mutex_update);
-
 }
 
 void	args_error(char *str)

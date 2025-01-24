@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 00:48:49 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 06:21:53 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/24 05:10:47 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_args	*init_args(char **av)
 	return (args);
 }
 
-t_table	*init_table()
+t_table	*init_table(void)
 {
 	t_table	*table;
 
