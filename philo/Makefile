@@ -28,6 +28,12 @@ $(NAME): $(OBJ)
 
 all: $(NAME)
 
+debug: CFLAGS += -fsanitize=thread
+debug: re
+
+leak: CFLAGS += -fsanitize=address
+leak: re
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
