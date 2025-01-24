@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 19:49:44 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/24 05:16:33 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/24 05:26:38 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ int	main(int ac, char **av)
 	{
 		return (destroy_and_free_table(table), EXIT_FAILURE);
 	}
-	// printf("%d\n", table->feeded_philos_count);
 	destroy_and_free_table(table);
 	exit(EXIT_SUCCESS);
 }
+
+// printf("%d\n", table->feeded_philos_count);
