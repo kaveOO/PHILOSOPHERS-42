@@ -6,7 +6,7 @@
 /*   By: albillie <albillie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 03:58:22 by albillie          #+#    #+#             */
-/*   Updated: 2025/01/23 06:39:41 by albillie         ###   ########.fr       */
+/*   Updated: 2025/01/24 04:54:04 by albillie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*philosophing(void *param)
 	philo = (t_philo *) param;
 	if (philo->id % 2 == 0)
 	{
-		ms_sleep(philo->args->time_to_eat / 2);
+		ms_sleep(philo->args->time_to_eat);
 	}
 	while (dinner_running(philo->table))
 	{
@@ -60,7 +60,7 @@ static void	check_if_dead(t_philo *philo, t_table *table, t_args *args)
 	if ((get_time_in_ms() - philo->last_meal_time) > args->time_to_die)
 	{
 		pthread_mutex_lock(&philo->table->mutex_display);
-		printf("%10ld %3d died \a\n", get_time_since_launch(table), philo->id);
+		printf("%10ld %3d died\n", get_time_since_launch(table), philo->id);
 		pthread_mutex_unlock(&philo->table->mutex_display);
 		table->state = WONT_THINK_ANYMORE;
 	}
